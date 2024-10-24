@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+
+}
+
+header {
+  background-color: rgb(3, 3, 82);
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  margin: 0;
+  padding: 16px;
+
+}
+
+.current-score, .high-score {
+  padding: 8px 24px;
+  border-radius: 16px;
+
+}
+
+.current-score {
+  background-color: rgb(255, 156, 173);
+}
+
+.high-score {
+  background-color: aqua;
+}

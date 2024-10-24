@@ -3,10 +3,13 @@ import "./Card.css"
 
 function Card(props) {
   const [isClicked, setIsClicked] = useState(false)
-  const {id, image, name} = props;
+  const {id, image, name, handleGameOver} = props;
   console.log(isClicked)
   return (
-    <li onClick={() => setIsClicked(true)}>
+    <li onClick={() => {
+      if (isClicked === false) setIsClicked(true)
+      else handleGameOver()
+    }}>
       <img className="character-image" src={`public/${image}.png`} alt="" />
       <p className="character-name">{name}</p>
     </li>
