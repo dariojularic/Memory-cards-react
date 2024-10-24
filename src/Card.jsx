@@ -6,7 +6,7 @@ function Card(props) {
   const {id, image, name, handleGameOver} = props;
   console.log(isClicked)
   return (
-    <li onClick={() => {
+    <li className="card" onClick={() => {
       if (isClicked === false) setIsClicked(true)
       else handleGameOver()
     }}>
