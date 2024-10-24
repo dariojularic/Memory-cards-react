@@ -2,13 +2,21 @@
   height: 240px;
   width: 180px;
   border-radius: 8px;
-  border: 1px solid gray;
   padding: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+  background-color: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  transition: scale 0.3s ease;
+  scale: 1;
+}
+
+.card:hover {
+  transition: scale 0.3s ease;
+  scale: 1.05;
 }
 
 .character-image {
