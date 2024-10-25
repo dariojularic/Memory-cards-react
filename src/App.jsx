@@ -7,10 +7,20 @@ function App() {
   const [currentScore, setCurrentScore] = useState(0)
   const [highScore, setHighScore] = useState(0)
   const [myCards, setMyCards] = useState(cards)
-  console.log(myCards)
+  // useEffect, ako su sve kartice kliknute -> game over, a ako nisu, provjeri za highscore
+  // console.log(myCards)
+  // console.log(typeof(currentScore))
 
-  function handleGameOver(score) {
+  // function handleNewHighScore(noviscore) { }
 
+  function handleGameOver() {
+
+  }
+
+  function shuffleArray() {
+    const newArray = myCards.sort(() => Math.random() - 0.5);
+    setMyCards(newArray)
+    // console.log(myCards)
   }
 
   return (
@@ -27,9 +37,8 @@ function App() {
           </div>
           <ul className="cards-grid">
             {myCards.map(card => {
-              return <Card key={card.id} {...card} handleGameOver={handleGameOver} setCurrentScore={setCurrentScore}/>
+              return <Card key={card.id} {...card} handleGameOver={handleGameOver} shuffleArray={shuffleArray} highScore={highScore} setHighScore={setHighScore} currentScore={currentScore} setCurrentScore={setCurrentScore}/>
             })}
-
           </ul>
           <div className="game-over">
             <h3>Game Over!</h3>
