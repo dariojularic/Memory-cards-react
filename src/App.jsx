@@ -47,7 +47,7 @@ function App() {
   function handleGameOver() {
     setMyCards(myCards.map(card => card.isClicked = false))
     setCurrentScore(0)
-    alert("game over")
+    // alert("game over")
   }
 
   function shuffleArray() {
