@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 function Card(props) {
   const [isClicked, setIsClicked] = useState(false)
   // console.log(props)
-  const {id, image, name, handleGameOver, shuffleArray, currentScore, setCurrentScore, highScore, setHighScore} = props;
+  const {id, image, name, isChecked, handleGameOver, shuffleArray, currentScore, setCurrentScore, highScore, setHighScore} = props;
   // console.log(isClicked)
   return (
     <li className="card" onClick={() => {
@@ -14,7 +14,9 @@ function Card(props) {
         setCurrentScore((currentScore) => currentScore + 1)
         shuffleArray()
         setIsClicked(true)
-        console.log("current score", currentScore)
+        // isChecked = true
+        // console.log(isClicked)
+        // console.log("current score", currentScore)
         // console.log(highScore)
         currentScore > highScore ? setHighScore(currentScore) : console.log("eeee")
       }
@@ -33,6 +35,7 @@ Card.propTypes = {
   id: PropTypes.number,
   image: PropTypes.string,
   name: PropTypes.string,
+  isChecked: PropTypes.bool,
   handleGameOver: PropTypes.func,
   shuffleArray: PropTypes.func,
   currentScore: PropTypes.number,

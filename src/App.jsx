@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import cards from './data'
 import Card from "./Card"
@@ -7,20 +7,35 @@ function App() {
   const [currentScore, setCurrentScore] = useState(0)
   const [highScore, setHighScore] = useState(0)
   const [myCards, setMyCards] = useState(cards)
+
+
+  useEffect(() => {
+    if(cards.every(card => card.isChecked === true)) {
+      handleGameOver()
+    } else {
+      currentScore > highScore ? setHighScore(currentScore) : null
+    }
+  }, [currentScore])
+  // jel mi treba u dependency arrayu i highScore ili ne???
+
+
   // useEffect, ako su sve kartice kliknute -> game over, a ako nisu, provjeri za highscore
   // console.log(myCards)
   // console.log(typeof(currentScore))
 
-  // function handleNewHighScore(noviscore) { }
+  // zasto mi je potrebna ova funkcija? 
+  function handleNewHighScore(newScore) {
+    setHighScore(newScore)
+  }
 
   function handleGameOver() {
-
+    alert("game over")
   }
 
   function shuffleArray() {
     const newArray = myCards.sort(() => Math.random() - 0.5);
     setMyCards(newArray)
-    // console.log(myCards)
+    console.log(myCards)
   }
 
   return (
@@ -37,6 +52,7 @@ function App() {
           </div>
           <ul className="cards-grid">
             {myCards.map(card => {
+              console.log(card.isChecked)
               return <Card key={card.id} {...card} handleGameOver={handleGameOver} shuffleArray={shuffleArray} highScore={highScore} setHighScore={setHighScore} currentScore={currentScore} setCurrentScore={setCurrentScore}/>
             })}
           </ul>
