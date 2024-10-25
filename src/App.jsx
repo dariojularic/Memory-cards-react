@@ -27,8 +27,6 @@ function App() {
 
 
   // useEffect, ako su sve kartice kliknute -> game over, a ako nisu, provjeri za highscore
-  // console.log("myCards", myCards)
-
   // zasto mi je potrebna ova funkcija?
   function handleNewHighScore(newScore) {
     setHighScore(newScore)
@@ -41,7 +39,6 @@ function App() {
   function shuffleArray() {
     const newArray = myCards.sort(() => Math.random() - 0.5);
     setMyCards(newArray)
-    // console.log("myCards", myCards)
   }
 
   return (
@@ -58,7 +55,6 @@ function App() {
           </div>
           <ul className="cards-grid">
             {myCards.map(card => {
-              // console.log("card", card)
               return <Card key={card.id} {...card} handleGameOver={handleGameOver} handleClickCard={handleClickCard} shuffleArray={shuffleArray} highScore={highScore} setHighScore={setHighScore} currentScore={currentScore} setCurrentScore={setCurrentScore}/>
             })}
           </ul>
