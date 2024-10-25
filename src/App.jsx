@@ -8,6 +8,13 @@ function App() {
   const [highScore, setHighScore] = useState(0)
   const [myCards, setMyCards] = useState(cards)
 
+  function handleClickCard(cardId) {
+    const newArray = myCards.map((card) => {
+      if (card.id === cardId) card.isClicked = true
+      return card
+    })
+    setMyCards(newArray)
+  }
 
   useEffect(() => {
     if(cards.every(card => card.isChecked === true)) {
@@ -20,10 +27,9 @@ function App() {
 
 
   // useEffect, ako su sve kartice kliknute -> game over, a ako nisu, provjeri za highscore
-  // console.log(myCards)
-  // console.log(typeof(currentScore))
+  // console.log("myCards", myCards)
 
-  // zasto mi je potrebna ova funkcija? 
+  // zasto mi je potrebna ova funkcija?
   function handleNewHighScore(newScore) {
     setHighScore(newScore)
   }
@@ -35,7 +41,7 @@ function App() {
   function shuffleArray() {
     const newArray = myCards.sort(() => Math.random() - 0.5);
     setMyCards(newArray)
-    console.log(myCards)
+    // console.log("myCards", myCards)
   }
 
   return (
@@ -52,8 +58,8 @@ function App() {
           </div>
           <ul className="cards-grid">
             {myCards.map(card => {
-              console.log(card.isChecked)
-              return <Card key={card.id} {...card} handleGameOver={handleGameOver} shuffleArray={shuffleArray} highScore={highScore} setHighScore={setHighScore} currentScore={currentScore} setCurrentScore={setCurrentScore}/>
+              // console.log("card", card)
+              return <Card key={card.id} {...card} handleGameOver={handleGameOver} handleClickCard={handleClickCard} shuffleArray={shuffleArray} highScore={highScore} setHighScore={setHighScore} currentScore={currentScore} setCurrentScore={setCurrentScore}/>
             })}
           </ul>
           <div className="game-over">
@@ -62,10 +68,6 @@ function App() {
             <button className="play-again-btn">Play again</button>
           </div>
         </main>
-
-        <footer>
-
-        </footer>
       </div>
 
   )
