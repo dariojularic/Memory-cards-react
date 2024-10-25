@@ -14,25 +14,39 @@ function App() {
       return card
     })
     setMyCards(newArray)
+    // shuffleArray()
+    // ocu ovjde stavit shuffleArray umjesto u Card.jsx???
   }
 
   useEffect(() => {
-    if(cards.every(card => card.isChecked === true)) {
+    if(cards.every(card => card.isClicked === true)) {
       handleGameOver()
+      console.log("you win")
     } else {
       currentScore > highScore ? setHighScore(currentScore) : null
     }
-  }, [currentScore])
-  // jel mi treba u dependency arrayu i highScore ili ne???
-
+  }, [currentScore, highScore])
+  // jel mi treba u dependency arrayu highScore i handleGameOver ili ne???
 
   // useEffect, ako su sve kartice kliknute -> game over, a ako nisu, provjeri za highscore
+
   // zasto mi je potrebna ova funkcija?
   function handleNewHighScore(newScore) {
     setHighScore(newScore)
   }
 
+  // function handleGameOver() {
+  //   const newArray = myCards.map(card => {
+  //     card.isClicked = false
+  //   })
+  //   setMyCards(newArray)
+  //   setCurrentScore(0)
+  //   alert("game over")
+  // }
+
   function handleGameOver() {
+    setMyCards(myCards.map(card => card.isClicked = false))
+    setCurrentScore(0)
     alert("game over")
   }
 
@@ -42,7 +56,6 @@ function App() {
   }
 
   return (
-
       <div className="app">
         <header>
           <h1>Rick and Morty memory game</h1>

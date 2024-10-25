@@ -8,7 +8,7 @@ function Card(props) {
     <li className="card" onClick={() => {
       if (isClicked === false) {
         setCurrentScore((prev) => prev + 1)
-        shuffleArray()
+        // shuffleArray()
         handleClickCard(id)
       }
       else {
@@ -29,7 +29,6 @@ Card.propTypes = {
   isClicked: PropTypes.bool,
   handleGameOver: PropTypes.func,
   shuffleArray: PropTypes.func,
-  currentScore: PropTypes.number,
   setCurrentScore: PropTypes.func,
   handleClickCard: PropTypes.func
 }
