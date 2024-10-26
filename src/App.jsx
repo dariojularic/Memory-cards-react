@@ -72,7 +72,7 @@ function App() {
           </div>
           <ul className="cards-grid">
             {myCards.map(card => {
-              return <Card key={card.id} {...card} handleGameOver={handleGameOver} handleClickCard={handleClickCard} shuffleArray={shuffleArray} setCurrentScore={setCurrentScore}/>
+              return <Card key={card.id} {...card} handleGameOver={handleGameOver} handleClickCard={handleClickCard} setCurrentScore={setCurrentScore}/>
             })}
           </ul>
           <div className="game-over">
