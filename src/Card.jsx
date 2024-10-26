@@ -2,13 +2,12 @@ import "./Card.css"
 import PropTypes from "prop-types";
 
 function Card(props) {
-  const {id, image, name, isClicked, handleGameOver, shuffleArray, handleClickCard, setCurrentScore} = props;
+  const {id, image, name, isClicked, handleGameOver, handleClickCard, setCurrentScore} = props;
 
   return (
     <li className="card" onClick={() => {
       if (isClicked === false) {
         setCurrentScore((prev) => prev + 1)
-        // shuffleArray()
         handleClickCard(id)
       }
       else {

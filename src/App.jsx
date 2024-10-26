@@ -3,10 +3,14 @@ import './App.css'
 import cards from './data'
 import Card from "./Card"
 
+// oce mi overlay bit jos jedna komponenta??
+
 function App() {
   const [currentScore, setCurrentScore] = useState(0)
   const [highScore, setHighScore] = useState(0)
   const [myCards, setMyCards] = useState(cards)
+
+  // const originalArray = myCards;
 
   function handleClickCard(cardId) {
     const newArray = myCards.map((card) => {
@@ -14,8 +18,7 @@ function App() {
       return card
     })
     setMyCards(newArray)
-    // shuffleArray()
-    // ocu ovjde stavit shuffleArray umjesto u Card.jsx???
+    shuffleArray()
   }
 
   useEffect(() => {
@@ -46,8 +49,9 @@ function App() {
 
   function handleGameOver() {
     setMyCards(myCards.map(card => card.isClicked = false))
+    // setMyCards(originalArray)
     setCurrentScore(0)
-    // alert("game over")
+    alert("game over")
   }
 
   function shuffleArray() {
@@ -68,7 +72,7 @@ function App() {
           </div>
           <ul className="cards-grid">
             {myCards.map(card => {
-              return <Card key={card.id} {...card} handleGameOver={handleGameOver} handleClickCard={handleClickCard} shuffleArray={shuffleArray} highScore={highScore} setHighScore={setHighScore} currentScore={currentScore} setCurrentScore={setCurrentScore}/>
+              return <Card key={card.id} {...card} handleGameOver={handleGameOver} handleClickCard={handleClickCard} shuffleArray={shuffleArray} setCurrentScore={setCurrentScore}/>
             })}
           </ul>
           <div className="game-over">
