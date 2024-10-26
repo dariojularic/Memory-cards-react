@@ -31,25 +31,11 @@ function App() {
   }, [currentScore, highScore])
   // jel mi treba u dependency arrayu highScore i handleGameOver ili ne???
 
-  // useEffect, ako su sve kartice kliknute -> game over, a ako nisu, provjeri za highscore
-
-  // zasto mi je potrebna ova funkcija?
-  function handleNewHighScore(newScore) {
-    setHighScore(newScore)
-  }
-
-  // function handleGameOver() {
-  //   const newArray = myCards.map(card => {
-  //     card.isClicked = false
-  //   })
-  //   setMyCards(newArray)
-  //   setCurrentScore(0)
-  //   alert("game over")
-  // }
-
   function handleGameOver() {
-    setMyCards(myCards.map(card => card.isClicked = false))
-    // setMyCards(originalArray)
+    const resetCards = myCards.map((card) => {
+      return {...card, isClicked: false}
+    })
+    setMyCards(resetCards)
     setCurrentScore(0)
     alert("game over")
   }
@@ -60,29 +46,30 @@ function App() {
   }
 
   return (
-      <div className="app">
-        <header>
-          <h1>Rick and Morty memory game</h1>
-        </header>
+    <div className="app">
+      <header>
+        <h1>Rick and Morty memory game</h1>
+      </header>
 
-        <main>
-          <div className="score">
-            <p className="current-score">Current Score: {currentScore}</p>
-            <p className="high-score">High Score: {highScore}</p>
-          </div>
-          <ul className="cards-grid">
-            {myCards.map(card => {
-              return <Card key={card.id} {...card} handleGameOver={handleGameOver} handleClickCard={handleClickCard} setCurrentScore={setCurrentScore}/>
-            })}
-          </ul>
-          <div className="game-over">
-            <h3>Game Over!</h3>
-            <p className="score-result">{currentScore}</p>
-            <button className="play-again-btn">Play again</button>
-          </div>
-        </main>
+      <main>
+        <div className="score">
+          <p className="current-score">Current Score: {currentScore}</p>
+          <p className="high-score">High Score: {highScore}</p>
+        </div>
+        <ul className="cards-grid">
+          {myCards.map(card => {
+            return <Card key={card.id} {...card} handleGameOver={handleGameOver} handleClickCard={handleClickCard} setCurrentScore={setCurrentScore}/>
+          })}
+        </ul>
+      </main>
+
+      <div className="game-over">
+        <h3>Game Over!</h3>
+        <p className="score-result">{currentScore}</p>
+        <button className="play-again-btn">Play again</button>
+        {/* react portal */}
       </div>
-
+    </div>
   )
 }
 
