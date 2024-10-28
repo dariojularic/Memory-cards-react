@@ -22,7 +22,6 @@ function App() {
   useEffect(() => {
     if(cards.every(card => card.isClicked === true)) {
       handleGameOver()
-      console.log("you win")
     } else {
       currentScore > highScore ? setHighScore(currentScore) : null
     }
@@ -34,7 +33,6 @@ function App() {
       return {...card, isClicked: false}
     })
     setMyCards(resetCards)
-    // setCurrentScore(0)
   }
 
   function shuffleArray() {

@@ -11,7 +11,6 @@ function Card(props) {
         handleClickCard(id)
       }
       else {
-        // console.log("isClicked je true")
         handleGameOver()
       }
     }}>
