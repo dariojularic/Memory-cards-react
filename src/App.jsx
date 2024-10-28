@@ -41,7 +41,7 @@ function App() {
   }
 
   return (
-    <>
+    <div>
       <div className="app">
         <header>
           <h1>Rick and Morty memory game</h1>
@@ -71,7 +71,7 @@ function App() {
             }>Play again</button>
         </Modal>
       }
-    </>
+    </div>
   )
 }
 
