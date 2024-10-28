@@ -2,15 +2,13 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import cards from './data'
 import Card from "./Card"
-
-// oce mi overlay bit jos jedna komponenta??
+import Modal from "./Modal"
 
 function App() {
-  const [currentScore, setCurrentScore] = useState(0)
-  const [highScore, setHighScore] = useState(0)
+  const [currentScore, setCurrentScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
+  const [overlayVisibility, setOverlayVisibility] = useState(false);
   const [myCards, setMyCards] = useState(cards)
-
-  // const originalArray = myCards;
 
   function handleClickCard(cardId) {
     const newArray = myCards.map((card) => {
@@ -29,7 +27,6 @@ function App() {
       currentScore > highScore ? setHighScore(currentScore) : null
     }
   }, [currentScore, highScore])
-  // jel mi treba u dependency arrayu highScore i handleGameOver ili ne???
 
   function handleGameOver() {
     const resetCards = myCards.map((card) => {
@@ -37,7 +34,8 @@ function App() {
     })
     setMyCards(resetCards)
     setCurrentScore(0)
-    alert("game over")
+    setOverlayVisibility(true)
+    // alert("game over")
   }
 
   function shuffleArray() {
@@ -63,12 +61,19 @@ function App() {
         </ul>
       </main>
 
-      <div className="game-over">
+
+      {overlayVisibility &&
+        <Modal>
+            <h3>Game Over!</h3>
+            <p className="score-result">{currentScore}</p>
+            <button className="play-again-btn" onClick={() => setOverlayVisibility(false)}>Play again</button>
+        </Modal>
+      }
+      {/* <div className="game-over">
         <h3>Game Over!</h3>
         <p className="score-result">{currentScore}</p>
         <button className="play-again-btn">Play again</button>
-        {/* react portal */}
-      </div>
+      </div> */}
     </div>
   )
 }
