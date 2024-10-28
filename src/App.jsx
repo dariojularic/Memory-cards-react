@@ -29,14 +29,12 @@ function App() {
   }, [currentScore, highScore])
 
   function handleGameOver() {
+    setOverlayVisibility(true)
     const resetCards = myCards.map((card) => {
       return {...card, isClicked: false}
     })
     setMyCards(resetCards)
-    setOverlayVisibility(true)
-    setCurrentScore(0)
-    // console.log("ovaj radi", currentScore)
-    // alert("game over")
+    // setCurrentScore(0)
   }
 
   function shuffleArray() {
@@ -66,9 +64,13 @@ function App() {
       {overlayVisibility &&
         <Modal>
             <h3 className="game-over-header">Game Over!</h3>
-            {console.log("ne radi", currentScore)}
             <p className="score-result">Your score: {currentScore}</p>
-            <button className="play-again-btn" onClick={() => setOverlayVisibility(false)}>Play again</button>
+            <button className="play-again-btn" onClick={
+              () => {
+                setOverlayVisibility(false)
+                setCurrentScore(0)
+              }
+            }>Play again</button>
         </Modal>
       }
     </>
