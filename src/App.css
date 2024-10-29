@@ -6,7 +6,6 @@ body {
 .app {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
 }
 
@@ -17,15 +16,12 @@ main {
   width: 880px;
 }
 
-
-
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
-gap: 32px;
+  gap: 32px;
   width: 100%;
-  /* border: 3px solid black; */
   list-style: none;
   padding: 0;
 }

@@ -46,7 +46,6 @@ function App() {
     <>
       <div className="app">
         <Header/>
-
         <main>
           <Score currentScore={currentScore} highScore={highScore}/>
           <ul className="cards-grid">
@@ -58,14 +57,14 @@ function App() {
       </div>
       {overlayVisibility &&
         <Modal>
-            <h3 className="game-over-header">Game Over!</h3>
-            <p className="score-result">Your score: {currentScore}</p>
-            <button className="play-again-btn" onClick={
-              () => {
-                setOverlayVisibility(false)
-                setCurrentScore(0)
-              }
-            }>Play again</button>
+          <h3 className="game-over-header">Game Over!</h3>
+          <p className="score-result">Your score: {currentScore}</p>
+          <button className="play-again-btn" onClick={
+            () => {
+              setOverlayVisibility(false)
+              setCurrentScore(0)
+            }
+          }>Play again</button>
         </Modal>
       }
     </>

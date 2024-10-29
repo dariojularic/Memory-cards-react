@@ -7,7 +7,6 @@
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  /* transition: all 0.5s; */
 }
 
 .game-over {
@@ -35,7 +34,6 @@
   color: white;
   font-weight: 600;
   cursor: pointer;
-
 }
 
 .game-over-header {
