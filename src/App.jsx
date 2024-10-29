@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import cards from './data'
+import cards from "./data"
 import Card from "./Card"
 import Modal from "./Modal"
+import Header from "./Header"
+import Score from "./Score"
 
 function App() {
   const [currentScore, setCurrentScore] = useState(0);
@@ -41,17 +43,12 @@ function App() {
   }
 
   return (
-    <div>
+    <>
       <div className="app">
-        <header>
-          <h1>Rick and Morty memory game</h1>
-        </header>
+        <Header/>
 
         <main>
-          <div className="score">
-            <p className="current-score">Current Score: {currentScore}</p>
-            <p className="high-score">High Score: {highScore}</p>
-          </div>
+          <Score currentScore={currentScore} highScore={highScore}/>
           <ul className="cards-grid">
             {myCards.map(card => {
               return <Card key={card.id} {...card} handleGameOver={handleGameOver} handleClickCard={handleClickCard} setCurrentScore={setCurrentScore}/>
@@ -71,7 +68,7 @@ function App() {
             }>Play again</button>
         </Modal>
       }
-    </div>
+    </>
   )
 }
 

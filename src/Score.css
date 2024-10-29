@@ -1,0 +1,19 @@
+.score {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.current-score, .high-score {
+  padding: 8px 24px;
+  border-radius: 16px;
+
+}
+
+.current-score {
+  background-color: rgb(255, 156, 173);
+}
+
+.high-score {
+  background-color: aqua;
+}

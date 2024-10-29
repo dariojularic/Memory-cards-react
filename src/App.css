@@ -10,47 +10,14 @@ body {
   align-items: center;
 }
 
-header {
-  background-color: rgb(3, 3, 82);
-  color: white;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-h1 {
-  margin: 0;
-  padding: 16px;
-
-}
-
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 880px;
-  /* border: 1px solid red; */
 }
 
-.score {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-}
 
-.current-score, .high-score {
-  padding: 8px 24px;
-  border-radius: 16px;
-
-}
-
-.current-score {
-  background-color: rgb(255, 156, 173);
-}
-
-.high-score {
-  background-color: aqua;
-}
 
 .cards-grid {
   display: grid;
