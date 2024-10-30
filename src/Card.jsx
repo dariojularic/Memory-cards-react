@@ -14,7 +14,7 @@ function Card(props) {
         handleGameOver()
       }
     }}>
-      <img className="character-image" src={`public/images/${image}.png`} alt="" />
+      <img className="character-image" src={`public/Images/${image}.png`} alt="" />
       <p className="character-name">{name}</p>
     </li>
   )
