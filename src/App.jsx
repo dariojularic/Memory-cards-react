@@ -12,15 +12,6 @@ function App() {
   const [overlayVisibility, setOverlayVisibility] = useState(false);
   const [myCards, setMyCards] = useState(cards)
 
-  function handleClickCard(cardId) {
-    const newArray = myCards.map((card) => {
-      if (card.id === cardId) card.isClicked = true
-      return card
-    })
-    setMyCards(newArray)
-    shuffleArray()
-  }
-
   // jel urednije ako stavim useEffect poslije funkcija?
   useEffect(() => {
     if(cards.every(card => card.isClicked === true)) {
@@ -29,6 +20,15 @@ function App() {
       currentScore > highScore ? setHighScore(currentScore) : null
     }
   }, [currentScore, highScore])
+
+  function handleClickCard(cardId) {
+    const newArray = myCards.map((card) => {
+      if (card.id === cardId) card.isClicked = true
+      return card
+    })
+    setMyCards(newArray)
+    shuffleArray()
+  }
 
   function handleGameOver() {
     setOverlayVisibility(true)
