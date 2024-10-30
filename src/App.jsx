@@ -21,6 +21,7 @@ function App() {
     shuffleArray()
   }
 
+  // jel urednije ako stavim useEffect poslije funkcija?
   useEffect(() => {
     if(cards.every(card => card.isClicked === true)) {
       handleGameOver()

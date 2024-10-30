@@ -13,7 +13,7 @@
   transition: scale 0.3s ease;
   scale: 1;
 }
-
+/*
 .card:hover {
   transition: scale 0.3s ease;
   scale: 1.1;
@@ -22,7 +22,7 @@
 .character-image {
   height: 85%;
   width: 100%;
-}
+} */
 
 .character-name {
   margin: 4px 0;
